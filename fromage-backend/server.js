@@ -8,6 +8,8 @@ const bodyParser = require("body-parser");
 const password = require("./password");
 const Data = require("./data");
 const mongodb = require("mongodb");
+const MongoClient = mongodb.MongoClient;
+const image2base64 = require("image-to-base64");
 
 const app = express();
 const router = express.Router();
@@ -31,13 +33,37 @@ app.get("/auth", (req, res) => {
 });
 
 app.get("/test", (req, res) => {
-  let MongoClient = mongodb.MongoClient;
-  MongoClient.connect(dbRoute, (err, whatever) => {
-    let collection = db.collection('workshops');
-    collection.find({}).toArray((err, data) => {
-      return res.json(data);
-    });
-  });
+  MongoClient.connect(
+    dbRoute,
+    (err, database) => {
+      let collection = db.collection("workshops");
+      collection.find({}).toArray((err, data) => {
+        return res.json(data);
+      });
+    }
+  );
+});
+
+router.post("/workshop", (req, res) => {
+  let img64 = image2base64(req.body.img);
+  MongoClient.connect(
+    dbRoute,
+    (err, database) => {
+      let collection = db.collection("workshops");
+      collection.insertOne({
+        title: req.body.title,
+        time_from: req.body.time_from,
+        time_to: req.body.time_to,
+        location: req.body.location,
+        description: req.body.description,
+        img: img64,
+        attendees: req.body.attendees,
+        max_attendees: req.body.max_attendees,
+        whattobring: req.body.whattobring
+      });
+    }
+  );
+  res.redirect("/");
 });
 
 router.get("/user", (req, res) => {
@@ -45,11 +71,7 @@ router.get("/user", (req, res) => {
 });
 
 router.post("/newuser", (req, res) => {
-  db.saveUser(userName, GoogleToken, picture, whatever);
-});
-
-router.post("/workshop", (req, res) => {
-  res.json(workshops.getWorkshopsByUsername());
+  db.saveUser(userName, GoogleToken, picture, database);
 });
 
 router.get("/getData", (req, res) => {
