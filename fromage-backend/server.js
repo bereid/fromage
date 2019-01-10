@@ -1,5 +1,7 @@
 'use strict';
 
+import workshops from './src/workshops';
+
 const express = require('express');
 const app = express();
 const PORT = 4444;
