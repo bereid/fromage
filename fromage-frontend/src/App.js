@@ -1,20 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Login from './components/Login';
-import Paper from '@material-ui/core/Paper';
 
-const styles = {
-  paper: {
-    margin: 300,
+const style = {
+  screen: {
+    width: '100%',
+    height: '100vh',
+    display: 'flex',
+    justifyContent: 'center',
+    background: 'rgb(209,171,16)',
+    flexDirection: 'column',
   }
 }
 
-const App = () => {
-  return (
-    <Paper style={styles.paper}>
-      <p>mizu</p>
-      <Login />
-    </Paper>
-  );
-};
+const App = () => (
+  <div style={style.screen}>
+    <Login />
+  </div>
+);
 
 export default App;
