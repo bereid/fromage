@@ -13,29 +13,27 @@ const jsonParser = bodyParser.json();
 const router = express.Router();
 const PORT = 4444;
 
-let db = mongoose.connection;
-
+const db = mongoose.connection;
 const dbRoute = `mongodb://fromageGuysandFruzsi:${password}@ds131721.mlab.com:31721/fromage-db`;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// app.get("/auth", (req, res) => {
-//   const userTokenAuth = user.authenticate(
-//     req.headers.username,
-//     req.headers.usertokengoogle,
-//     req.picture
-//   );
-//   res.status(userTokenAuth ? 200 : 401);
-//   res.send(userTokenAuth ? { userTokenAuth, isAdmin } : { error });
-// });
+app.get("/auth", (req, res) => {
+  const userTokenAuth = user.authenticate(
+    req.headers.username,
+    req.headers.usertokengoogle,
+    req.picture
+  );
+  res.status(userTokenAuth ? 200 : 401);
+  res.send(userTokenAuth ? { userTokenAuth, isAdmin } : { error });
+});
 
-router.get('/', (req, res) => {
+router.get('/test', (req, res) => {
   Data.find((err, data) => {
     if (err) return res.json({ success: false, error: err });
     return res.json({ success: true, data: data });
   });
-  res.json(workshops.getWorkshops());
 });
 
 router.get('/user', (req, res) => {
