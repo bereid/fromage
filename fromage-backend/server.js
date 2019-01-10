@@ -32,6 +32,7 @@ app.get("/auth", (req, res) => {
 
 router.get("/test", (req, res) => {
   Data.find((err, data) => {
+    console.log(data);
     if (err) return res.json({ success: false, error: err });
     return res.json({ success: true, data: data });
   });
