@@ -7,19 +7,14 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const password = require("./password");
 const Data = require("./data");
+const mongodb = require("mongodb");
 
 const app = express();
 const router = express.Router();
-const jsonParser = bodyParser.json();
 const PORT = 4444;
 
 const db = mongoose.connection;
 const dbRoute = `mongodb://fromageGuysandFruzsi:${password}@ds131721.mlab.com:31721/fromage-db`;
-
-mongoose.connect(
-  dbRoute,
-  { useNewUrlParser: true }
-);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -35,12 +30,14 @@ app.get("/auth", (req, res) => {
   res.send(userTokenAuth ? { userTokenAuth, isAdmin } : { error });
 });
 
-router.get("/test", (req, res) => {
-  return res.json(workshops.getWorkshops());
-  // Data.find((err, data) => {
-  //   if (err) return res.json({ success: false, error: err });
-  //   return res.json({ success: true, data: data });
-  // });
+app.get("/test", (req, res) => {
+  let MongoClient = mongodb.MongoClient;
+  MongoClient.connect(dbRoute, (err, whatever) => {
+    let collection = db.collection('workshops');
+    collection.find({}).toArray((err, data) => {
+      return res.json(data);
+    });
+  });
 });
 
 router.get("/user", (req, res) => {
