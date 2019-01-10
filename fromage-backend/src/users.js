@@ -4,7 +4,7 @@ const users = {};
 
 users.getUsers = () => db.getUsers();
 
-users.getToken = (username, googleToken, picture = '') => {
+users.getToken = (username, picture = '') => {
   const currentUser = db.getUserByName(username);
   if (currentUser) {
     return currentUser.tokenAuth;

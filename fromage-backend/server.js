@@ -1,6 +1,8 @@
 'use strict';
 
-import workshops from './src/workshops';
+const workshops = require('./src/workshops');
+const users = require('./src/users');
+const db = require('mongo-db'); // or whatever
 
 const express = require('express');
 const app = express();
@@ -13,20 +15,20 @@ app.get('/auth', (req, res) => {
   res.send(userTokenAuth ? { userTokenAuth, isAdmin } : { error });
 });
 
-app.get('/', (req,res) => {
-
+app.get('/', (req, res) => {
+  res.json(workshops.getWorkshops());
 });
 
-app.post('/workshop', (req,res) => {
-
+app.get('/user', (req, res) => {
+  res.json(users.getUsers());
 });
 
-app.get('/user', (req,res) => {
-
+app.post('/newuser', (req, res) => {
+  db.saveUser(userName, GoogleToken, picture, whatever);
 });
 
-app.post('/newuser', (req,res) => {
-
+app.post('/workshop', (req, res) => {
+  res.json(workshops.getWorkshopsByUsername());
 });
 
 app.listen(PORT, () => {

@@ -4,4 +4,6 @@ const workshops = {};
 
 workshops.getWorkshops = () => db.getWorkshops();
 
+workshops.yourWorkshops = () => db.getWorkshopsByUsername();
+
 module.exports = workshops;
