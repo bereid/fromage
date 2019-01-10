@@ -45,7 +45,9 @@ app.get("/test", (req, res) => {
 });
 
 router.post("/workshop", (req, res) => {
-  let img64 = image2base64(req.body.img);
+  let img64 = image2base64(req.body.img).then(response => {
+    img64 = response;
+  });
   MongoClient.connect(
     dbRoute,
     (err, database) => {
