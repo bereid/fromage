@@ -30,7 +30,7 @@ function WSCard(props) {
           alt="Contemplative Reptile"
           className={classes.media}
           height="140"
-          image="https://www.irishtimes.com/polopoly_fs/1.3478384.1525031895!/image/image.jpg_gen/derivatives/box_620_330/image.jpg"
+          image={props.ws.img}
           title="Contemplative Reptile"
         />
         <CardContent>

@@ -8,6 +8,7 @@ const myMockedWorkshops = [
     "time_to": "2019.01.10. 18:00",
     "location": "XL Meeting Room",
     "description": "From the birth of the football to the Galactic Real Madrid",
+    "img": "https://www.irishtimes.com/polopoly_fs/1.3478384.1525031895!/image/image.jpg_gen/derivatives/box_620_330/image.jpg",
     "attendees": "4",
     "whattobring": "Notebook is required"
   },
@@ -20,6 +21,7 @@ const myMockedWorkshops = [
     "time_to": "2019.01.10. 18:00",
     "location": "XL Meeting Room",
     "description": "From the birth of the football to the Galactic Real Madrid",
+    "img": "https://www.irishtimes.com/polopoly_fs/1.3478384.1525031895!/image/image.jpg_gen/derivatives/box_620_330/image.jpg",
     "attendees": "4",
     "whattobring": "Notebook is required"
   },
@@ -32,6 +34,7 @@ const myMockedWorkshops = [
     "time_to": "2019.01.10. 18:00",
     "location": "XL Meeting Room",
     "description": "From the birth of the football to the Galactic Real Madrid",
+    "img": "https://www.irishtimes.com/polopoly_fs/1.3478384.1525031895!/image/image.jpg_gen/derivatives/box_620_330/image.jpg",
     "attendees": "4",
     "whattobring": "Notebook is required"
   },
