@@ -1,19 +1,25 @@
 import React from 'react';
 import MyWS from './components/MyWS';
+import { Typography } from '@material-ui/core';
 
-const style = {
+const styles = {
   screen: {
-    width: '100%',
-    height: '100vh',
+    width: '70%',
     display: 'flex',
     justifyContent: 'center',
-    background: 'rgb(209,171,16)',
     flexDirection: 'column',
+    margin: '0 auto',
+  },
+  title: {
+    marginTop: '3em',
+    marginBottom: '3em',
+    marginLeft: '1em',
   }
 }
 
 const DashboardScreen = () => (
-  <div style={style.screen}>
+  <div style={styles.screen}>
+    <Typography gutterBottom variant="h5" component="h2" style={styles.title}>My Workshops:</Typography>
     <MyWS />
   </div>
 );
