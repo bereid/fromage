@@ -14,8 +14,8 @@ const style = {
 
 const CreateWSScreen = () => (
   <div style={style.screen}>
-    <CreateWS />
-  </div>
+  <CreateWS />
+</div>
 );
 
 export default CreateWSScreen;
