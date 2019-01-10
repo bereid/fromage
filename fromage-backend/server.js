@@ -16,6 +16,11 @@ const PORT = 4444;
 const db = mongoose.connection;
 const dbRoute = `mongodb://fromageGuysandFruzsi:${password}@ds131721.mlab.com:31721/fromage-db`;
 
+mongoose.connect(
+  dbRoute,
+  { useNewUrlParser: true }
+);
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use("/", router);
@@ -31,11 +36,11 @@ app.get("/auth", (req, res) => {
 });
 
 router.get("/test", (req, res) => {
-  Data.find((err, data) => {
-    console.log(data);
-    if (err) return res.json({ success: false, error: err });
-    return res.json({ success: true, data: data });
-  });
+  return res.json(workshops.getWorkshops());
+  // Data.find((err, data) => {
+  //   if (err) return res.json({ success: false, error: err });
+  //   return res.json({ success: true, data: data });
+  // });
 });
 
 router.get("/user", (req, res) => {
@@ -64,11 +69,6 @@ router.post("/updateData", (req, res) => {
     return res.json({ success: true });
   });
 });
-
-mongoose.connect(
-  dbRoute,
-  { useNewUrlParser: true }
-);
 
 db.once("open", () => console.log("connected to the database"));
 
