@@ -35,6 +35,7 @@ app.get("/auth", (req, res) => {
 app.get("/test", (req, res) => {
   MongoClient.connect(
     dbRoute,
+    { useNewUrlParser: true },
     (err, database) => {
       let collection = db.collection("workshops");
       collection.find({}).toArray((err, data) => {
@@ -50,6 +51,7 @@ router.post("/workshop", (req, res) => {
   });
   MongoClient.connect(
     dbRoute,
+    { useNewUrlParser: true },
     (err, database) => {
       let collection = db.collection("workshops");
       collection.insertOne({
@@ -73,7 +75,19 @@ router.get("/user", (req, res) => {
 });
 
 router.post("/newuser", (req, res) => {
-  db.saveUser(userName, GoogleToken, picture, database);
+  // db.saveUser(userName, GoogleToken, picture, database);
+  MongoClient.connect(
+    dbRoute,
+    { useNewUrlParser: true },
+    (err, database) => {
+      let collection = db.collection("users");
+      collection.insertOne({
+        username: req.body.username,
+        email: req.body.email,
+        my_wss: []
+      });
+    }
+  );
 });
 
 router.get("/getData", (req, res) => {
