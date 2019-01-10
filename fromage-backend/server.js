@@ -1,16 +1,25 @@
-'use strict';
+"use strict";
 
 const workshops = require('./src/workshops');
 const users = require('./src/users');
-const db = require('mongo-db'); // or whatever
+const mongoose = require("mongoose");
+const express = require("express");
+const password = require("./password");
 
-const express = require('express');
 const app = express();
+const Data = require("./data");
 const PORT = 4444;
 
-app.get('/auth', (req, res) => {
-  const userTokenAuth = user.authenticate(req.headers.username,
-    req.headers.usertokengoogle, req.picture);
+let db = mongoose.connection;
+
+const dbRoute = `mongodb://fromageGuysandFruzsi:${password}@ds131721.mlab.com:31721/fromage-db`;
+
+app.get("/auth", (req, res) => {
+  const userTokenAuth = user.authenticate(
+    req.headers.username,
+    req.headers.usertokengoogle,
+    req.picture
+  );
   res.status(userTokenAuth ? 200 : 401);
   res.send(userTokenAuth ? { userTokenAuth, isAdmin } : { error });
 });
@@ -30,6 +39,15 @@ app.post('/newuser', (req, res) => {
 app.post('/workshop', (req, res) => {
   res.json(workshops.getWorkshopsByUsername());
 });
+
+mongoose.connect(
+  dbRoute,
+  { useNewUrlParser: true }
+);
+
+db.once("open", () => console.log("connected to the database"));
+
+db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 app.listen(PORT, () => {
   console.log(`Server iz runna at ${PORT} boiz`);
