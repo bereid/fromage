@@ -1,9 +1,9 @@
 import React from 'react';
-import Login from './components/Login';
 import LoginScreen from './LoginScreen';
+import CreateWSScreen from './CreateWSSCreen';
 
 const App = () => (
-  <LoginScreen />
+  <CreateWSScreen />
 );
 
 export default App;
