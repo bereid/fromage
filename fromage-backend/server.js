@@ -88,6 +88,7 @@ router.post("/newuser", (req, res) => {
       });
     }
   );
+  res.redirect("/");
 });
 
 router.get("/getData", (req, res) => {
