@@ -14,7 +14,7 @@ const style = {
 }
 
 const App = () => (
-  <DashboardScreen />
+  <CreateWSScreen />
 );
 
 export default App;

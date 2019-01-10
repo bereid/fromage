@@ -11,7 +11,7 @@ const styles = {
   }
 }
 
-const MyWS = () => (
+const AllWS = () => (
   <div style={styles.myworkshops}>
     {myMockedWorkshops.map((workshop) => (
       <WSCard ws={workshop} />
@@ -19,4 +19,4 @@ const MyWS = () => (
   </div>
 );
 
-export default MyWS;
+export default AllWS;

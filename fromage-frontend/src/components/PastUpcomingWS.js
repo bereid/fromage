@@ -6,7 +6,6 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { Divider } from '@material-ui/core';
 
 const styles = theme => ({
   root: {
@@ -26,6 +25,10 @@ const style = {
   img: {
     width: 200,
     marginBottom: '1em',
+  },
+  expansion: {
+    width: '90%',
+    alignItems: 'center',
   }
 }
 
@@ -34,7 +37,7 @@ function PastUpcomingWS(props) {
   return (
     <div className={classes.root}>
       {props.ws.map((workshop) => (
-        <ExpansionPanel>
+        <ExpansionPanel style={style.expansion}>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
             <Typography  variant="title" gutterBottom>{workshop.title}</Typography>
           </ExpansionPanelSummary>
