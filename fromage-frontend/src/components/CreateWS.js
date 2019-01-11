@@ -4,8 +4,7 @@ import Paper from '@material-ui/core/Paper';
 const styles = {
   paper: {
     margin: '0 auto',
-    width: '50%',
-    height: '100vh',
+    width: '50%', 
   },
   form: {
     display: 'flex',
@@ -20,7 +19,7 @@ const styles = {
   },
   textarea: {
     maxWidth: '100%',
-    minHeight: 100,
+    minHeight: 50,
   }
 }
 
