@@ -11,10 +11,14 @@ const styles = {
   }
 }
 
-const MyWS = () => (
+const MyWS = ({ workshop }) => (
   <div style={styles.myworkshops}>
-    {myMockedWorkshops.map((workshop) => (
-      <WSCard ws={workshop} />
+    {workshop.map((myworkshop) => (
+      myworkshop.owner === 'berei.daniel' 
+      ?
+      <WSCard ws={myworkshop} />
+      : 
+      ''
     ))}
   </div>
 );

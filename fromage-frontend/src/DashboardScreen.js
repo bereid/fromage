@@ -15,8 +15,8 @@ const styles = {
     margin: '0 auto',
   },
   title: {
-    marginTop: '3em',
-    marginBottom: '3em',
+    marginTop: '2em',
+    marginBottom: '2em',
   },
   grid: {
     display: 'grid',
@@ -27,7 +27,7 @@ const styles = {
 const DashboardScreen = ({ workshops, getWorkshops }) => (
   <div style={styles.screen}>
     <Typography gutterBottom variant="h5" component="h2" style={styles.title}>My Workshops:</Typography>
-    <MyWS />
+    <MyWS workshop={workshops}/>
     <div style={styles.grid}>
         <Typography gutterBottom variant="h5" component="h2" style={styles.title}>Past workshops:</Typography>
         <Typography gutterBottom variant="h5" component="h2" style={styles.title}>Upcoming Workshops:</Typography>

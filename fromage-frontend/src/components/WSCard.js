@@ -13,6 +13,7 @@ import { Divider } from '@material-ui/core';
 const styles = {
   card: {
     maxWidth: 300,
+    marginBottom: '1em',
   },
   media: {
     objectFit: 'cover',
