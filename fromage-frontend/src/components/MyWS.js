@@ -1,6 +1,5 @@
 import React from 'react';
 import WSCard from './WSCard';
-import myMockedWorkshops from '../config/mockedWS';
 
 const styles = {
   myworkshops: {

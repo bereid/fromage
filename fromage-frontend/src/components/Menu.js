@@ -1,6 +1,5 @@
 import React from 'react';
 import Paper from '@material-ui/core/Paper';
-import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import ListItem from '@material-ui/core/ListItem';
 import { NavLink } from 'react-router-dom';
@@ -25,7 +24,7 @@ const styles = {
 
 const Menu = () => (
   <Paper style={styles.menu}>
-    <img src="http://icons.iconarchive.com/icons/webalys/kameleon.pics/256/Cheese-icon.png" style={styles.logo}></img>
+    <img src="http://icons.iconarchive.com/icons/webalys/kameleon.pics/256/Cheese-icon.png" alt="logo" style={styles.logo}></img>
     <h3 style={styles.h3}>Welcome<br /> 
       to Fromage</h3>
     <MenuList>
