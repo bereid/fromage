@@ -5,6 +5,7 @@ import { Typography } from '@material-ui/core';
 import PastUpcomingWS from './components/PastUpcomingWS';
 import myMockedWorkshops from './config/mockedWS';
 import Searchfield from './components/Searchfield';
+import getAllWS from './config/getallWS';
 
 const styles = {
   screen: {
@@ -24,7 +25,7 @@ const styles = {
   },
 }
 
-const DashboardScreen = () => (
+const DashboardScreen = ({ workshops, getWorkshops }) => (
   <div style={styles.screen}>
     <Typography gutterBottom variant="h5" component="h2" style={styles.title}>My Workshops:</Typography>
     <MyWS />
@@ -36,7 +37,8 @@ const DashboardScreen = () => (
     </div>
     <Typography gutterBottom variant="h5" component="h2" style={styles.title}>Search Workshops:</Typography>
     <Searchfield />
-    <AllWS />
+    {workshops.length != 0 ? '' : getWorkshops()}
+    <AllWS ws={workshops}/>
   </div>
 );
 

@@ -29,7 +29,7 @@ function WSCard(props) {
           alt="Contemplative Reptile"
           className={classes.media}
           height="140"
-          image={props.ws.img}
+          image="https://e2.365dm.com/18/10/768x432/skysports-paulo-dybala-juventus_4462430.jpg?20181023203839"
           title="Contemplative Reptile"
         />
         <CardContent>

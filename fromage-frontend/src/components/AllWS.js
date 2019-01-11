@@ -1,6 +1,5 @@
 import React from 'react';
 import WSCard from './WSCard';
-import myMockedWorkshops from '../config/mockedWS';
 
 const styles = {
   myworkshops: {
@@ -11,9 +10,9 @@ const styles = {
   }
 }
 
-const AllWS = () => (
+const AllWS = ({ ws }) => (
   <div style={styles.myworkshops}>
-    {myMockedWorkshops.map((workshop) => (
+    {ws.map((workshop) => (
       <WSCard ws={workshop} />
     ))}
   </div>
