@@ -10,6 +10,7 @@ const Data = require("./data");
 const mongodb = require("mongodb");
 const MongoClient = mongodb.MongoClient;
 const image2base64 = require("image-to-base64");
+const cors = require('cors');
 
 const app = express();
 const router = express.Router();
@@ -21,6 +22,7 @@ const dbRoute = `mongodb://fromageGuysandFruzsi:${password}@ds131721.mlab.com:31
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use("/", router);
+app.use(cors());
 
 app.get("/auth", (req, res) => {
   const userTokenAuth = user.authenticate(
