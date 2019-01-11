@@ -24,12 +24,13 @@ function WSCard(props) {
   return (
     <Card className={classes.card}>
       <CardActionArea>
+        {console.log(props.ws.img)}
         <CardMedia
           component="img"
           alt="Contemplative Reptile"
           className={classes.media}
           height="140"
-          image={props.ws.img}
+          image={`data:image/jpg;base64, ${props.ws.img}`}
           title="Contemplative Reptile"
         />
         <CardContent>

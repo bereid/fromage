@@ -7,15 +7,19 @@ import { Router, Route } from 'react-router-dom';
 import history from './history';
 import LoginScreen from './LoginScreen';
 import CreateWSScreen from './CreateWSSCreen';
-import DashboardScreen from './DashboardScreen';
+import DashboardScreenContainer from './DashboardScreenContainer';
+import { Provider } from 'react-redux';
+import store from './store';
 
 ReactDOM.render(
   <Router history={history}>
-    <App>
-      <Route exact path="/" component={LoginScreen} />
-      <Route path="/create" component={CreateWSScreen} />
-      <Route path="/dashboard" component={DashboardScreen} />
-    </App>
+    <Provider store={store}>
+      <App>
+        <Route exact path="/" component={LoginScreen} />
+        <Route path="/create" component={CreateWSScreen} />
+        <Route path="/dashboard" component={DashboardScreenContainer} />
+      </App>
+    </Provider>
   </Router>,
   document.getElementById('root'));
 
