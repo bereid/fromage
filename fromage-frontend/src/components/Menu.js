@@ -10,17 +10,30 @@ const styles = {
   menu: {
     position: 'fixed',
     margin: '1em',
+  },
+  logo: {
+    display: 'block',
+    width: 150,
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    marginTop: 5,
+  },
+  h3: {
+    textAlign: 'center',
   }
 }
 
 const Menu = () => (
   <Paper style={styles.menu}>
+    <img src="http://icons.iconarchive.com/icons/webalys/kameleon.pics/256/Cheese-icon.png" style={styles.logo}></img>
+    <h3 style={styles.h3}>Welcome<br /> 
+      to Fromage</h3>
     <MenuList>
       <ListItem
         button
         component={NavLink}
         to={'/create'}
-        activeStyle={{ background: '#FFB74D' }}
+        activeStyle={{ background: 'rgba(240, 58, 85, 0.7' }}
         className="nav-link"
       >
 
@@ -30,10 +43,9 @@ const Menu = () => (
         button
         component={NavLink}
         to={'/dashboard'}
-        activeStyle={{ background: '#FFB74D' }}
+        activeStyle={{ background: 'rgba(240, 58, 85, 0.7' }}
         className="nav-link"
       >
-
         <ListItemText primary='Dashboard' />
       </ListItem>
     </MenuList>

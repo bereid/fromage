@@ -2,7 +2,7 @@ import React from 'react';
 import WSCard from './WSCard';
 
 const styles = {
-  myworkshops: {
+  allworkshops: {
     display: 'flex',
     flexWrap: 'wrap',
     width: '100%',
@@ -11,7 +11,7 @@ const styles = {
 }
 
 const AllWS = ({ ws }) => (
-  <div style={styles.myworkshops}>
+  <div style={styles.allworkshops}>
     {ws.map((workshop) => (
       <WSCard ws={workshop} />
     ))}
