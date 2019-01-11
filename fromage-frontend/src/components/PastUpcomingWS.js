@@ -43,7 +43,7 @@ function PastUpcomingWS(props) {
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <div style={style.div}>
-              <img src={workshop.img} style={style.img}></img>
+              <img src={workshop.img} style={style.img} alt="alt"></img>
               <Typography variant="subheading" gutterBottom>{workshop.description}</Typography>
               <Typography variant="subheading" gutterBottom>From: {workshop.time_from}</Typography>
               <Typography variant="subheading" gutterBottom>To: {workshop.time_to}</Typography>
