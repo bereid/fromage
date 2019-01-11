@@ -25,7 +25,7 @@ const styles = {
 
 const CreateWS = () => (
   <Paper style={styles.paper}>
-    <form style={styles.form}>
+    <form action="http://localhost:4444/workshop" method="post" style={styles.form}>
       <div style={styles.formfield}>
         <label for="title">Workshop title:</label>
         <input type="text" id="title" name="title"></input>
