@@ -24,12 +24,13 @@ function WSCard(props) {
   return (
     <Card className={classes.card}>
       <CardActionArea>
+        {console.log(props.ws.img)}
         <CardMedia
           component="img"
           alt="Contemplative Reptile"
           className={classes.media}
           height="140"
-          image="https://e2.365dm.com/18/10/768x432/skysports-paulo-dybala-juventus_4462430.jpg?20181023203839"
+          image={`data:image/jpg;base64, ${props.ws.img}`}
           title="Contemplative Reptile"
         />
         <CardContent>
